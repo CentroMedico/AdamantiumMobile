@@ -33,15 +33,33 @@ angular.module('starter', ['ionic'])
     .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
-    controller: 'LogincontrolerCtrl'
+     controller: 'LogincontrolerCtrl'
   })
   .state('solicitarTurnos', {
     url: '/turnos',
-    templateUrl: 'templates/solicitar.html'
+    templateUrl: 'templates/solicitar.html',
+     controller: 'SolicitarturnosCtrl'
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 
-});
+})
 
+  .controller('LogincontrolerCtrl',function ($scope,$http) {
+    $scope.loguearse = function()
+    {
+      alert($scope.email+ " "+ $scope.clave);
+      $http({method: "GET",
+        url:"http://www.google.com"})
+      .then(function(data){
+
+      });
+    };
+    $scope.email="";
+    $scope.clave="";
+
+  })
+  .controller('SolicitarturnosCtrl',function ($scope) {  
+
+  });
 

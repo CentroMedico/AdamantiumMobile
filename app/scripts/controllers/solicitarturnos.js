@@ -8,10 +8,10 @@
  * Controller of the adamantiumMobileApp
  */
 angular.module('adamantiumMobileApp')
-  .controller('SolicitarturnosCtrl', function () {
+  .controller('SolicitarturnosCtrl',['$scope','$http',function ($scope,$http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  }]);

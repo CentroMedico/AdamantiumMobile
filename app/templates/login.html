@@ -1,14 +1,13 @@
 <div class="list">
   <label class="item item-input">
     <span class="input-label"> Usuario </span>
-    <input type="email" ng-model="email">
+    <input type="text" ng-model="email">
   </label>
-
   <label class="item item-input">
-    <span class="input-label"> Contraseña </span>
-    <input type="password">
+    <span class="input-label" > Contraseña </span>
+    <input type="password" ng-model="clave">
   </label>
   <div class="padding">
-    <button  ng-click="loguearse()" class="button button-block button-positive icon ion-log-in"> Login</button>
+    <button   class="button button-block button-positive icon ion-log-in" ng-click="loguearse()" > Login</button>
   </div>
 </div>
