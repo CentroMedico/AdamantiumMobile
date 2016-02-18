@@ -9,8 +9,8 @@
     <div class="input-label">
       &nbsp;Especialidad
     </div>
-    <select>
-      <option selected>Clinica General</option>
+    <select ng-model="especialidad" >
+      <option selected >Clinica General</option>
     </select>
   </label>
 
@@ -20,7 +20,7 @@
       
       &nbsp;Doctor
     </div>
-    <select>
+    <select ng-model="doctor">
       <option selected>Doctor de ejemplo</option>
     </select>
   </label>
@@ -30,7 +30,7 @@
     <div class="input-label">
       &nbsp;Horario
     </div>
-    <select>
+    <select ng-model="horario">
       <option selected>12pm</option>
     </select>
   </label>
@@ -43,15 +43,15 @@
 
   <div class="item item-input padding">
 
-    <textarea placeholder="Motivo" rows="3"></textarea>
+    <textarea ng-model="motivo" placeholder="Motivo" rows="3"></textarea>
   </div>
 
 
   <div class="item item-divider ">
   	<div class="row">
-  	<button  class="button button-block button-calm col icon ion-android-exit"> Cerrar Sesión</button>
-    <button   class="button button-block button-positive icon ion-checkmark-round col col-offset-10"> Solicitar</button>
-	</div>
+  	<button ng-click="cerrarSesion()" class="button button-block button-calm col icon ion-android-exit"> Cerrar Sesión</button>
+    <button ng-click="solicitarTurno()"   class="button button-block button-positive icon ion-checkmark-round col col-offset-10" > Solicitar</button>
+	  </div>
   </div>
 
 
