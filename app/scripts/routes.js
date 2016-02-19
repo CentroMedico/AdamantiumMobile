@@ -1,7 +1,8 @@
 
-angular.module('adamantium', ['ionic'])
-.config(config);
-function config($stateProvider, $urlRouterProvider) {
+angular
+  .module('adamantium')
+  .config(config);
+function config($stateProvider, $urlRouterProvider,$httpProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -21,5 +22,6 @@ function config($stateProvider, $urlRouterProvider) {
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
+   $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 }
