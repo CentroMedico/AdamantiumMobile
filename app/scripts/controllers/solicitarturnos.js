@@ -21,7 +21,7 @@ angular.module('adamantium')
         $http({method: "GET",
           url:"http://www.google.com"})
         .then(function(data){
-
+          
         });
       };
 

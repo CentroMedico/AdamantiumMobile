@@ -8,7 +8,7 @@
  * Controller of the adamantiumMobileApp
  */
 angular.module('adamantium')
-    .controller('LoginCtrl',['$scope','$http','base64', function ($scope,$http,base64) {
+    .controller('LoginCtrl',['$scope','$http','base64','$location', function ($scope,$http,base64,$location) {
     
       /*function Cntrl($scope, $http, Base64) {
 
@@ -25,19 +25,17 @@ $http({method: 'GET', url: 'https://.../Category.json'}).
     $scope.loguearse = function()
     {
       
-      console.log(base64.encode($scope.email+$scope.clave));
+   
+      $http.defaults.headers.common['Authorization'] = 'Basic ' + base64.encode($scope.email+':'+$scope.clave);
       $http({method: "GET",
-        url:"http://127.0.0.1:8080/restful/"})
-      .then(function (data){
-        //$scope.loguearse();
-
-      })
-
-
-      .error(function (response) {
-        alert("intente nuevamente");
+        url:"/restful/"})
+      .then(function successCallback(response) {
+         //$window.location = "/#/turnos/";
+         $location.path("turnos");
+      }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+       alert("intente nuevamente");
       });
-
     };
     $scope.email="";
     $scope.clave="";
