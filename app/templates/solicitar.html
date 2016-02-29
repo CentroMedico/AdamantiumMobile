@@ -2,15 +2,15 @@
   <h2 class="title">Solicitar Turno</h2>
 </div>
 
-<div class="list card has-header">
+<div class="list card has-header" >
 
   <label class="item item-input item-select ">
   	<i class="icon ion-android-person " style="font-size: 27px;"></i>
     <div class="input-label">
       &nbsp;Especialidad
     </div>
-    <select ng-model="especialidad" >
-      <option selected >Clinica General</option>
+    <select ng-model="selectespecialidad" ng-init="cargarEspecialidad();">
+      <option value="{{lista}}" ng-repeat="lista in especialidad" selected > {{lista}}</option>
     </select>
   </label>
 
@@ -20,18 +20,17 @@
       
       &nbsp;Doctor
     </div>
-    <select ng-model="doctor">
-      <option selected>Doctor de ejemplo</option>
+    <select ng-model="doctor"  ng-init="cargarMedicos();" >
+      <option value="{{lista.href}}" ng-repeat="lista in listaMedicos" selected>{{lista.title}}</option>
     </select>
   </label>
-
     <label class="item item-input item-select ">
     <i class="icon ion-clock " style="font-size: 27px;"></i>
     <div class="input-label">
       &nbsp;Horario
     </div>
-    <select ng-model="horario">
-      <option selected>12pm</option>
+    <select ng-model="horario"  >
+      <option value="{{lista.href}}" ng-repeat="lista in agenda" selected>{{lista.title}}</option>
     </select>
   </label>
 
@@ -50,7 +49,7 @@
   <div class="item item-divider ">
   	<div class="row">
   	<button ng-click="cerrarSesion()" class="button button-block button-calm col icon ion-android-exit"> Cerrar Sesión</button>
-    <button ng-click="solicitarTurno()"   class="button button-block button-positive icon ion-checkmark-round col col-offset-10" > Solicitar</button>
+    <button ng-click="solicitarTurno()" class="button button-block button-positive icon ion-checkmark-round col col-offset-10" > Solicitar</button>
 	  </div>
   </div>
 
