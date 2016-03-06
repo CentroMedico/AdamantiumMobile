@@ -4,7 +4,7 @@
     "proxies": [
     {
       "path": "/restful",
-      "proxyUrl": "http://127.0.0.1:8080/restful/"
+      "proxyUrl": "http://adamantium.dyndns.org:8080/simpleapp/restful/"
     }
   ]
 }

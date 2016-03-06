@@ -7,12 +7,12 @@
  * Controller of the adamantiumMobileApp
  */
 angular.module('starter.adamantiumturnos',[])
- .controller('SolicitarturnosCtrl',['$scope','$http',function ($scope,$http) {  
+ .controller('SolicitarturnosCtrl',['$scope','$http','$location',function ($scope,$http,$location) {  
 
 
     $scope.motivo=null;
     $scope.selectespecialidad=null;
-    $scope.doctor={href:''};
+    $scope.doctor={href:null};
     $scope.horario=null;
     $scope.listaMedicos=null;
 
@@ -30,7 +30,7 @@ angular.module('starter.adamantiumturnos',[])
       $scope.cargarEspecialidad=function()
       {
         $http({method: 'GET',
-          url:'/restful/services/dom.turnopaciente.TurnoPacienteServicio/actions/asignarTurno/'})
+          url:'/restful/services/dom.turnopaciente.TurnoPacienteServicio/actions/sacarTurno/'})
         .then(function(data){
           $scope.especialidad = data.data.parameters.especialidad.choices;
         });
@@ -52,7 +52,7 @@ angular.module('starter.adamantiumturnos',[])
           }
         })
         .then(function(data){
-          
+          $location.path('/solicito');
         });
       };
 
@@ -89,7 +89,8 @@ angular.module('starter.adamantiumturnos',[])
       };
       $scope.cerrarSesion = function()
       {
-       
+
+       $location.path('/');
       };
 
   }]);

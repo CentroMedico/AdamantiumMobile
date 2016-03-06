@@ -7,7 +7,7 @@
  * # base64
  * Service in the adamantiumMobileApp.
  */
-angular.module('adamantium')
+angular.module('starter')
   .service('base64', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var _keyStr= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';

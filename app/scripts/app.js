@@ -40,7 +40,12 @@
     templateUrl: 'templates/solicitar.html',
     controller: 'SolicitarturnosCtrl',
     controllerAs: 'turnos'
-  });
+  })
+  .state('solicito', {
+    url: '/solicito',
+    templateUrl: 'templates/solicitoTurno.html'
+  })
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 
