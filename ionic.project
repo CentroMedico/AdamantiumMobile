@@ -1,10 +1,11 @@
 {
   "name": "AdamantiumMobile",
   "app_id": "",
-    "proxies": [
+  "proxies": [
     {
       "path": "/restful",
-      "proxyUrl": "http://adamantium.dyndns.org:8080/simpleapp/restful/"
+      "proxyUrl": "http://adamantium.dyndns.org:8080/simpleapp/restful"
     }
   ]
+    
 }

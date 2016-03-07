@@ -6,8 +6,8 @@
  * # SolicitarturnosCtrl
  * Controller of the adamantiumMobileApp
  */
-angular.module('starter.adamantiumturnos',[])
- .controller('SolicitarturnosCtrl',['$scope','$http','$location',function ($scope,$http,$location) {  
+angular.module('starter.adamantiumturnos',['config'])
+ .controller('SolicitarturnosCtrl',['$scope','$http','$location','ENV',function ($scope,$http,$location,ENV) {  
 
 
     $scope.motivo=null;
@@ -19,7 +19,7 @@ angular.module('starter.adamantiumturnos',[])
       $scope.cargarMedicos = function()
       {
         $http({method: 'POST',
-          url:'/restful/services/dom.doctor.DoctorServicio/actions/listarDoctoresActivos/invoke'})
+          url: ENV.apiEndpoint + '/restful/services/dom.doctor.DoctorServicio/actions/listarDoctoresActivos/invoke'})
         .then(function(data){
           //console.log(data);
           $scope.listaMedicos = data.data.result.value;
@@ -30,7 +30,7 @@ angular.module('starter.adamantiumturnos',[])
       $scope.cargarEspecialidad=function()
       {
         $http({method: 'GET',
-          url:'/restful/services/dom.turnopaciente.TurnoPacienteServicio/actions/sacarTurno/'})
+          url: ENV.apiEndpoint+'/restful/services/dom.turnopaciente.TurnoPacienteServicio/actions/sacarTurno/'})
         .then(function(data){
           $scope.especialidad = data.data.parameters.especialidad.choices;
         });
@@ -40,7 +40,7 @@ angular.module('starter.adamantiumturnos',[])
       $scope.solicitarTurno=function()
       {
         $http({method: 'POST',
-          url:'/restful/services/dom.turnopaciente.TurnoPacienteServicio/actions/sacarTurno/invoke',
+          url:ENV.apiEndpoint+'/restful/services/dom.turnopaciente.TurnoPacienteServicio/actions/sacarTurno/invoke',
           data:{
             "especialidad":{value:$scope.selectespecialidad},
             "doctor":{value:{href:$scope.doctor}},
@@ -60,7 +60,7 @@ angular.module('starter.adamantiumturnos',[])
       $scope.cargarTurnos=function()
       {
         $http({method: 'GET',
-          url:'/restful/services/dom.turnopaciente.TurnoPacienteServicio/actions/asignarTurno/'})
+          url:ENV.apiEndpoint+'/restful/services/dom.turnopaciente.TurnoPacienteServicio/actions/asignarTurno/'})
         .then(function(data){
           $scope.especialidad = data.data.parameters.especialidad.choices;
         });
@@ -77,7 +77,7 @@ angular.module('starter.adamantiumturnos',[])
             }
           };
         $http({method: 'POST',
-          url:'/restful/services/dom.agendadoctor.AgendaDoctorServicio/actions/listaDoctor/invoke',
+          url:ENV.apiEndpoint+'/restful/services/dom.agendadoctor.AgendaDoctorServicio/actions/listaDoctor/invoke',
           data:parametros,
           headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -89,7 +89,7 @@ angular.module('starter.adamantiumturnos',[])
       };
       $scope.cerrarSesion = function()
       {
-
+        
        $location.path('/');
       };
 

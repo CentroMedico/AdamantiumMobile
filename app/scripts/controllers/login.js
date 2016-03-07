@@ -7,8 +7,8 @@
  * # LoginCtrl
  * Controller of the adamantiumMobileApp
  */
-angular.module('starter.adamantiumlogin', [])
-    .controller('LoginCtrl',['$scope','$http','$location','base64', function ($scope,$http,$location,base64) {
+angular.module('starter.adamantiumlogin', ['config'])
+    .controller('LoginCtrl',['$scope','$http','$location','base64','ENV', function ($scope,$http,$location,base64,ENV) {
     
 
 
@@ -18,7 +18,7 @@ angular.module('starter.adamantiumlogin', [])
    
       $http.defaults.headers.common['Authorization'] = 'Basic ' + base64.encode($scope.email+':'+$scope.clave);
       $http({method: 'GET',
-        url:'/restful/'})
+        url:ENV.apiEndpoint+'/restful/'})
       .then(function successCallback(response) {
          //$window.location = "/#/turnos/";
 
@@ -26,7 +26,7 @@ angular.module('starter.adamantiumlogin', [])
       }, function errorCallback(response) {
     // called asynchronously if an error occurs
     
-       alert('intente nuevamente');
+       alert(ENV.apiEndpoint+'/restful/'+'intente nuevamente'+response.data);
       });
     };
     $scope.email='';
